@@ -1,28 +1,40 @@
 // background.js
-chrome.action.onClicked.addListener((tab) => {
-    chrome.scripting.executeScript({
-        target: {
-            tabId: tab.id
-        },
-        function: copyToClipboard,
-    });
-});
-
 function copyToClipboard() {
 
+    function displayTooltip() {
+        // Create the tooltip element
+        const tooltip = document.createElement('div');
+        tooltip.textContent = 'Number Copied to Clipboard';
+        tooltip.style.position = 'fixed';
+        tooltip.style.top = '50%';
+        tooltip.style.left = '50%';
+        tooltip.style.transform = 'translate(-50%, -50%)';
+        tooltip.style.padding = '5px';
+        tooltip.style.backgroundColor = 'lightgray';
+        tooltip.style.border = '1px solid gray';
+        tooltip.style.borderRadius = '3px';
+        tooltip.style.zIndex = '9999';
+        document.body.appendChild(tooltip);
+
+        // Remove the tooltip after a delay
+        setTimeout(() => {
+            tooltip.remove();
+        }, 2000); // Remove after 2 seconds
+    }
+
     targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
-    
+
     if (targetElement) {
-    
+
         text = targetElement.textContent;
 
         // Regular expressions to match phone number and person's name patterns
         const phoneNumberPattern = /\+\d+\s?\d+/;
 
         if (!phoneNumberPattern.test(text)) {
-        
+
             targetElement = document.querySelector('div.a4ywakfo.qt60bha0');
-            
+
             if (targetElement) {
                 text = targetElement.textContent;
             }
@@ -46,4 +58,17 @@ function copyToClipboard() {
 
     // Clean up and remove the textarea element
     document.body.removeChild(textarea);
+
+    displayTooltip();
+
 }
+
+
+chrome.action.onClicked.addListener((tab) => {
+    chrome.scripting.executeScript({
+        target: {
+            tabId: tab.id
+        },
+        function: copyToClipboard,
+    });
+});
