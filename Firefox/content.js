@@ -1,9 +1,8 @@
 // content.js
-
 function handleClick() {
-  console.log("Icon clicked in tab");
-  
- function displayTooltip() {
+    console.log("Icon clicked in tab");
+
+    function displayTooltip() {
         // Create the tooltip element
         const tooltip = document.createElement('div');
         tooltip.textContent = 'Number Copied to Clipboard';
@@ -39,7 +38,7 @@ function handleClick() {
 
             if (targetElement) {
                 text = targetElement.textContent;
-               console.log("2nd if" + text);
+                console.log("2nd if" + text);
             }
         }
 
@@ -50,15 +49,15 @@ function handleClick() {
     console.log(phoneNumber);
 
     navigator.clipboard.writeText(phoneNumber).then(function() {
-      console.log("Title copied to clipboard: " + phoneNumber);
+        console.log("Title copied to clipboard: " + phoneNumber);
     }, function() {
-      console.error("Failed to copy title to clipboard");
+        console.error("Failed to copy title to clipboard");
     });
 
-     if(phoneNumber) {
-    
-      displayTooltip();  
-    }    
+    if (phoneNumber) {
+
+        displayTooltip();
+    }
 }
 
 handleClick();
