@@ -11,23 +11,20 @@ chrome.action.onClicked.addListener((tab) => {
 function copyToClipboard() {
 
     targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
+    
     if (targetElement) {
+    
         text = targetElement.textContent;
 
         // Regular expressions to match phone number and person's name patterns
         const phoneNumberPattern = /\+\d+\s?\d+/;
-        const namePattern = /^[A-Za-z\s]+$/;
 
-        if (phoneNumberPattern.test(text)) {
-            console.log("The element contains a phone number.");
-
-        } else {
-            console.log("The element contains a person's name.");
+        if (!phoneNumberPattern.test(text)) {
+        
             targetElement = document.querySelector('div.a4ywakfo.qt60bha0');
+            
             if (targetElement) {
                 text = targetElement.textContent;
-            } else {
-
             }
         }
 
