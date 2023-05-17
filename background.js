@@ -59,10 +59,11 @@ function copyToClipboard() {
     // Clean up and remove the textarea element
     document.body.removeChild(textarea);
 
-    displayTooltip();
-
+     if(phoneNumber) {
+    
+      displayTooltip();  
+    } 
 }
-
 
 chrome.action.onClicked.addListener((tab) => {
     chrome.scripting.executeScript({
