@@ -10,19 +10,31 @@ chrome.action.onClicked.addListener((tab) => {
 
 function copyToClipboard() {
 
-    // Find the target element
-    const targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
-    if (targetElement == '') {
-        targetElement = document.querySelector('span[dir=auto]');
-    }
+    targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
+    if (targetElement) {
+        text = targetElement.textContent;
 
-    if (!targetElement) {
-        console.error('Target element not found');
-        return;
+        // Regular expressions to match phone number and person's name patterns
+        const phoneNumberPattern = /\+\d+\s?\d+/;
+        const namePattern = /^[A-Za-z\s]+$/;
+
+        if (phoneNumberPattern.test(text)) {
+            console.log("The element contains a phone number.");
+
+        } else {
+            console.log("The element contains a person's name.");
+            targetElement = document.querySelector('div.a4ywakfo.qt60bha0');
+            if (targetElement) {
+                text = targetElement.textContent;
+            } else {
+
+            }
+        }
+
     }
 
     // Extract and copy the phone number
-    const phoneNumber = targetElement.textContent.replace(/[^\d]/g, '');
+    const phoneNumber = text.replace(/[^\d]/g, '');
     console.log(phoneNumber);
 
     // Create an offscreen textarea element and set its value to the desired text
