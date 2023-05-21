@@ -22,7 +22,9 @@ function copyToClipboard() {
         }, 2000); // Remove after 2 seconds
     }
 
+
     targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
+
 
     if (targetElement) {
 
@@ -42,27 +44,42 @@ function copyToClipboard() {
 
     }
 
-    // Extract and copy the phone number
-    const phoneNumber = text.replace(/[^\d]/g, '');
-    console.log(phoneNumber);
+    // Retrieve the checkbox state from storage
+    chrome.storage.sync.get('includeCountryCode', function(data) {
+        var includeCountryCode = data.includeCountryCode;
 
-    // Create an offscreen textarea element and set its value to the desired text
-    const textarea = document.createElement("textarea");
-    textarea.style.cssText = "position:absolute;left:-9999px;top:-9999px;";
-    textarea.value = phoneNumber;
-    document.body.appendChild(textarea);
+        //      function doSomethingWithExternalVariable() {
+        if (includeCountryCode) {
+            // Include country code is checked
+            phoneNumber = text.replace(/[^\d]/g, '');
+        } else {
+            // Include country code is not checked
+            phoneNumber = text.replace(/^\+\d+\s|\D/g, '');
+        }
+        //}
 
-    // Programmatically select and copy the text from the textarea
-    textarea.select();
-    document.execCommand("copy");
+        console.log(phoneNumber);
+        // Create an offscreen textarea element and set its value to the desired text
+        const textarea = document.createElement("textarea");
+        textarea.style.cssText = "position:absolute;left:-9999px;top:-9999px;";
+        textarea.value = phoneNumber;
+        document.body.appendChild(textarea);
 
-    // Clean up and remove the textarea element
-    document.body.removeChild(textarea);
+        // Programmatically select and copy the text from the textarea
+        textarea.select();
+        document.execCommand("copy");
 
-     if(phoneNumber) {
-    
-      displayTooltip();  
-    } 
+        // Clean up and remove the textarea element
+        document.body.removeChild(textarea);
+
+        if (phoneNumber) {
+
+            displayTooltip();
+        }
+
+    });
+
+
 }
 
 chrome.action.onClicked.addListener((tab) => {
