@@ -7,4 +7,6 @@ To copy number of a saved contact, you need to click on contact's profile once a
 
 By default, it will skip the country code. But if you want country code to be included in the number then, go to preferences of the add-on and then check "Include Country Code" checkbox.
 
+![WACopyMate in action](https://res.cloudinary.com/suleman/image/upload/v1684697500/WACopyMate_in_action.png)
+
 Enjoy.
