@@ -17,6 +17,9 @@
       "js": ["content.js"]
     }
   ],
+  "options_ui": {
+    "page": "options.html"
+  },
   "permissions": [
     "activeTab",
     "clipboardWrite",
@@ -31,5 +34,11 @@
       "96": "icons/icon96.png"
     },
     "default_title": "WACopyMate"
-  }
+  },
+"browser_specific_settings": {
+    "gecko": {
+        "id": "extensionname@example.org",
+        "strict_min_version": "88.0"
+    }
+}
 }

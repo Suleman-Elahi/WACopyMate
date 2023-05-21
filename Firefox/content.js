@@ -23,8 +23,8 @@ function handleClick() {
         }, 2000); // Remove after 2 seconds
     }
 
-    targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
-    text = '';
+    let targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
+    let text = '';
     if (targetElement) {
 
         text = targetElement.textContent;
@@ -44,8 +44,16 @@ function handleClick() {
 
     }
 
-    // Extract and copy the phone number
-    const phoneNumber = text.replace(/[^\d]/g, '');
+   browser.storage.sync.get('includeCountryCode', function(data) {
+        var includeCountryCode = data.includeCountryCode;
+        if (includeCountryCode) {
+            // Include country code is checked
+            phoneNumber = text.replace(/[^\d]/g, '');
+        } else {
+            // Include country code is not checked
+            phoneNumber = text.replace(/^\+\d+\s|\D/g, '');
+        }
+
     console.log(phoneNumber);
 
     navigator.clipboard.writeText(phoneNumber).then(function() {
@@ -58,6 +66,8 @@ function handleClick() {
 
         displayTooltip();
     }
+
+    });
 }
 
 handleClick();
