@@ -9,4 +9,6 @@ By default, it will skip the country code. But if you want country code to be in
 
 ![WACopyMate in action](https://res.cloudinary.com/suleman/image/upload/v1684697500/WACopyMate_in_action.png)
 
+Icon credits: <a href="https://iconscout.com/icons/duplicate" target="_blank">Free Duplicate Icon</a> by <a href="https://iconscout.com/contributors/mcgandhi61" target="_blank">Mohit Gandhi</a>
+
 Enjoy.
