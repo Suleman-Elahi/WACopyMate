@@ -9,7 +9,7 @@ By default, it will skip the country code. But if you want country code to be in
 
 <a href="https://www.producthunt.com/posts/wacopymate?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-wacopymate" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=395576&theme=light" alt="WACopyMate - Copy&#0032;phone&#0032;numbers&#0032;on&#0032;WhatsApp&#0032;Web&#0032;in&#0032;1&#0032;click&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 <a href="https://addons.mozilla.org/en-US/firefox/addon/wacopymate/"><img src="https://raw.githubusercontent.com/Suleman-Elahi/Aurin/main/Aurin_Extension/icons/get-the-addon.png"></a>
-<a href="https://microsoftedge.microsoft.com/addons/detail/wacopymate/chbdgmakgdbpfjpbjnalknmkjcneicnk"><img src="https://user-images.githubusercontent.com/11660256/111323589-4f4c7c00-866a-11eb-80ff-da7de777d7c0.png"></a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/wacopymate/mpmdjkjakhckcojbgdlfnjbpmgllolkh"><img src="https://user-images.githubusercontent.com/11660256/111323589-4f4c7c00-866a-11eb-80ff-da7de777d7c0.png"></a>
 <a href="https://chrome.google.com/webstore/detail/wacopymate/opephbjjkpfopahlbinebcinmaglipmc"><img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png"></a>
 
 ![WACopyMate in action](https://res.cloudinary.com/suleman/image/upload/v1684697500/WACopyMate_in_action.png)
