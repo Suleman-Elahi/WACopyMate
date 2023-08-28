@@ -23,7 +23,7 @@ function copyToClipboard() {
     }
 
 
-    targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
+    targetElement = document.querySelector('div._3W2ap');
 
 
     if (targetElement) {
