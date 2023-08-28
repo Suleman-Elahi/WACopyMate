@@ -23,7 +23,7 @@ function handleClick() {
         }, 2000); // Remove after 2 seconds
     }
 
-    let targetElement = document.querySelector('span[data-testid="conversation-info-header-chat-title"]');
+    let targetElement = document.querySelector('div._3W2ap');
     let text = '';
     if (targetElement) {
 
