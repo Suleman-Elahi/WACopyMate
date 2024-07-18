@@ -23,7 +23,7 @@ function handleClick() {
         }, 2000); // Remove after 2 seconds
     }
 
-    let targetElement = document.querySelector('div._3W2ap');
+    let targetElement = document.querySelector('header span[dir="auto"]'); //get the phone number from header if the contact is unsaved
     let text = '';
     if (targetElement) {
 
@@ -34,17 +34,20 @@ function handleClick() {
 
         if (!phoneNumberPattern.test(text)) {
 
-            targetElement = document.querySelector('div.a4ywakfo.qt60bha0');
+            targetElements = document.querySelectorAll('span[dir="auto"].copyable-text');
 
-            if (targetElement) {
-                text = targetElement.textContent;
-                console.log("2nd if" + text);
+            for (i = 0; i < targetElements.length; i++) { //get the phone number from info bar for saved/known contacts
+
+                if (phoneNumberPattern.test(targetElements[i].textContent)) {
+                    text = targetElements[i].textContent;
+                }
+
             }
         }
 
     }
 
-   browser.storage.sync.get('includeCountryCode', function(data) {
+    browser.storage.sync.get('includeCountryCode', function(data) {
         var includeCountryCode = data.includeCountryCode;
         if (includeCountryCode) {
             // Include country code is checked
@@ -54,18 +57,18 @@ function handleClick() {
             phoneNumber = text.replace(/^\+\d+\s|\D/g, '');
         }
 
-    console.log(phoneNumber);
+        console.log(phoneNumber);
 
-    navigator.clipboard.writeText(phoneNumber).then(function() {
-        console.log("Title copied to clipboard: " + phoneNumber);
-    }, function() {
-        console.error("Failed to copy title to clipboard");
-    });
+        navigator.clipboard.writeText(phoneNumber).then(function() {
+            console.log("Title copied to clipboard: " + phoneNumber);
+        }, function() {
+            console.error("Failed to copy title to clipboard");
+        });
 
-    if (phoneNumber) {
+        if (phoneNumber) {
 
-        displayTooltip();
-    }
+            displayTooltip();
+        }
 
     });
 }
