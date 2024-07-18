@@ -23,7 +23,7 @@ function copyToClipboard() {
     }
 
 
-    targetElement = document.querySelector('div._3W2ap');
+    targetElement = document.querySelector('header span[dir="auto"]'); //get the phone number from header if the contact is unsaved
 
 
     if (targetElement) {
@@ -35,11 +35,17 @@ function copyToClipboard() {
 
         if (!phoneNumberPattern.test(text)) {
 
-            targetElement = document.querySelector('div.a4ywakfo.qt60bha0');
+            targetElements = document.querySelectorAll('span[dir="auto"].copyable-text');
 
-            if (targetElement) {
-                text = targetElement.textContent;
+            for (i = 0; i < targetElements.length; i++) { //get the phone number from info bar for saved/known contacts
+
+                console.log(targetElements[i].textContent);
+                if (phoneNumberPattern.test(targetElements[i].textContent)) {
+                    text = targetElements[i].textContent;
+                }
+
             }
+
         }
 
     }
