@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "WACopyMate",
-  "version": "1.0",
+  "version": "1.3",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
@@ -9,12 +9,18 @@
     "128": "icons/icon128.png"
   },
   "background": {
-    "scripts": ["background.js"]
-   },
+    "scripts": [
+      "background.js"
+    ]
+  },
   "content_scripts": [
     {
-      "matches": ["https://web.whatsapp.com/*"],
-      "js": ["content.js"]
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
     }
   ],
   "options_ui": {
@@ -35,10 +41,10 @@
     },
     "default_title": "WACopyMate"
   },
-"browser_specific_settings": {
+  "browser_specific_settings": {
     "gecko": {
-        "id": "extensionname@example.org",
-        "strict_min_version": "88.0"
+      "id": "wacopymate@soleman.click",
+      "strict_min_version": "88.0"
     }
-}
+  }
 }
